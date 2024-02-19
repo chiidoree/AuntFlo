@@ -20,7 +20,7 @@ class _DashboardState extends State<Dashboard> {
   final List<Widget> _tabs=[
     const Home(),
     Insights(),
-    const Inbox(),
+    // const Inbox(),
     const Profile(),
   ];
   @override

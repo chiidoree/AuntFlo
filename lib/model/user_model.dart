@@ -22,6 +22,7 @@ class UserModel{
     factory UserModel.fromJson(QueryDocumentSnapshot<Map<String, dynamic>>documentSnapshot){
   final snapShot = documentSnapshot.data();
   return UserModel(
+    uId: snapShot['id'],
     fullName: snapShot['full_name'],
     emailAddress: snapShot['email_address'],
   );

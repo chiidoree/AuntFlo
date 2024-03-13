@@ -230,6 +230,26 @@ class _LoginState extends State<Login> {
                                             prefs.setString('id',user.uid);
                                             Navigator.of(context).pushReplacementNamed('/dashboard');
                                            }else{
+                                            if(context.mounted){
+                                              await showDialog(
+                                                  context: context,
+                                                  builder: (BuildContext dialogContext){
+                                                    return AlertDialog(
+                                                      icon: Icon(Icons.warning),
+                                                      title: Text('Login Error'),
+                                                      content: Text('Couldn\'t login. Please verify your email or password!'),
+                                                      actions: [
+                                                        InkWell(
+                                                          child: Text('OK'),
+                                                          onTap: () {
+                                                            Navigator.of(dialogContext).pop();
+                                                          },
+                                                        )
+                                                      ],
+                                                    );
+                                                  });
+                                            }
+
                                              print('Login failed');
                                             }
                                           },
